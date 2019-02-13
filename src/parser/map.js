@@ -1,5 +1,6 @@
 // parsers
 const EXTINF = require('./extinf');
+const EXTGRP = require('./extgrp');
 const EXT_X_VERSION = require('./ext-x-version');
 const EXT_X_BYTERANGE = require('./ext-x-byterange');
 const EXT_X_DISCONTINUITY = require('./ext-x-discontinuity');
@@ -37,6 +38,11 @@ const DEFAULT_PARSER_MAP = {
   '#EXTINF': {
     key: 'inf',
     parser: EXTINF,
+    scope: SCOPE.MEDIA_SEGMENT,
+  },
+  '#EXTGRP': {
+    key: 'grp',
+    parser: EXTGRP,
     scope: SCOPE.MEDIA_SEGMENT,
   },
   '#EXT-X-BYTERANGE': {
